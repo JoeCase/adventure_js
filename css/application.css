@@ -1,0 +1,25 @@
+#game-container {
+  margin: 50px auto;
+  border: 1px red solid;
+  text-align: center;
+}
+
+table {
+  border: 1px red solid;
+  margin: 0px auto;
+
+}
+
+tr {
+
+}
+
+td {
+  border: 1px grey solid;
+  height: 50px;
+  width: 50px;
+}
+
+.player {
+  background-color: red;
+}

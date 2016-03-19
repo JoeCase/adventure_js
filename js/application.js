@@ -13,12 +13,20 @@ $(document).ready(function() {
   world.treasureGen();
   world.startGen();
 
+  boardCreate(4);
+
   var gameArgs = { health:  50,
                    position: world.playerStart,
                    gridSize: world.gridSize
   };
 
   var game = new Game(gameArgs);
+
+  // Create the board
+
+  document.
+
+  //
 
   alert("Are you ready to play?")
 
@@ -36,25 +44,37 @@ $(document).ready(function() {
 
   Mousetrap.bind('down', function(){
     var newPos =  [ [game.position[0][0], game.position[0][1] - 1 ]];
-    move(newPos, game, world);
-    print_position(game.position);
+    var edge =  game.edgeCheck(newPos, game);
+    if ( edge ) {
+      alert("You hit a wall! Try again")
+    } else {
+      move(newPos, game, world);
+      print_position(game.position);
+    };
   });
 
 
   Mousetrap.bind('left', function(){
     var newPos = [[game.position[0][0] - 1, game.position[0][1] ]];
-    move(newPos, game, world);
-    print_position(game.position);
+     var edge =  game.edgeCheck(newPos, game);
+    if ( edge ) {
+      alert("You hit a wall! Try again")
+    } else {
+      move(newPos, game, world);
+      print_position(game.position);
+    };
   });
 
 
   Mousetrap.bind('right', function(){
     var newPos = [[ game.position[0][0] + 1, game.position[0][1] ]];
-    move(newPos, game, world);
-    print_position(game.position);
+     var edge =  game.edgeCheck(newPos, game);
+    if ( edge ) {
+      alert("You hit a wall! Try again")
+    } else {
+      move(newPos, game, world);
+      print_position(game.position);
+    };
   });
-
-
-
 
 });
