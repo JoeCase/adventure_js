@@ -13,7 +13,6 @@ $(document).ready(function() {
   world.treasureGen();
   world.startGen();
 
-  boardCreate(4);
 
   var gameArgs = { health:  50,
                    position: world.playerStart,
@@ -23,12 +22,11 @@ $(document).ready(function() {
   var game = new Game(gameArgs);
 
   // Create the board
-
-  document.
+ boardCreate(game, world);
 
   //
 
-  alert("Are you ready to play?")
+  alert("Are you ready to play?");
 
   Mousetrap.bind('up', function(){
     var newPos = [[ game.position[0][0], game.position[0][1] + 1 ]];

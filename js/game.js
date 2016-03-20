@@ -143,11 +143,5 @@ function print_position(position) {
       }
     }
     body.appendChild(tbl);
-
-
-
-
-
-
   $('#2-3').addClass('player');
   };
