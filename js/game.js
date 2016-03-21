@@ -143,5 +143,28 @@ function print_position(position) {
       }
     }
     body.appendChild(tbl);
-  $('#2-3').addClass('player');
   };
+
+  function make_id(coord) {
+    return "#" + coord[0] + "-" + coord[1];
+   };
+
+
+   function place_items(world) {
+
+    world.bombCoord.forEach(function(coord){
+      $(make_id(coord)).addClass('bomb');
+    });
+
+    world.healthCoord.forEach(function(coord){
+      $(make_id(coord)).addClass('health');
+    });
+
+    world.treasure.forEach(function(coord){
+      $(make_id(coord)).addClass('treasure');
+    });
+
+    world.playerStart.forEach(function(coord){
+      $(make_id(coord)).addClass('player');
+    });
+   };

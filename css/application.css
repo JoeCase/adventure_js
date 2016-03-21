@@ -23,3 +23,15 @@ td {
 .player {
   background-color: red;
 }
+
+.bomb {
+  background-color: gray;
+}
+
+.health {
+  background-color: green;
+}
+
+.treasure {
+  background-color: yellow;
+}

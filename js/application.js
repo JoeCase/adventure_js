@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var worldArgs = {size:  4,
+  var worldArgs = {size:  8,
                    bombs: 2,
                    health: 2
                   };
@@ -14,6 +14,7 @@ $(document).ready(function() {
   world.startGen();
 
 
+
   var gameArgs = { health:  50,
                    position: world.playerStart,
                    gridSize: world.gridSize
@@ -21,8 +22,9 @@ $(document).ready(function() {
 
   var game = new Game(gameArgs);
 
-  // Create the board
+ // Create the board
  boardCreate(game, world);
+ place_items(world);
 
   //
 
