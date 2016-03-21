@@ -40,14 +40,16 @@ World.prototype.healthGen = function() {
 };
 
 World.prototype.treasureGen = function() {
+  i = _.random(0,this.coordinates.length);
   this.treasure.push(this.coordinates.splice(i, 1)[0]);
 };
 
 World.prototype.startGen = function() {
+  i = _.random(0,this.coordinates.length);
   this.playerStart.push(this.coordinates.splice(i, 1)[0]);
 };
 
-// GAME
+// GAME ////////////////////////////////////////////
 
 function Game(args) {
   args = args ? args : {};
@@ -95,14 +97,16 @@ Game.prototype.edgeCheck = function(newPos, game) {
 };
 
 
-
-
 function move(newPos, game, world) {
-  var newPos = newPos;
+  $(make_id(game.position[0])).removeClass('player').addClass('played');
+  $(make_id(newPos[0])).addClass('player');
+  game.position = newPos;
+
   game.bombCheck(world.bombCoord, newPos, game);
   game.healthCheck(world.healthCoord, newPos, game);
   game.gameOver(world.treasure, newPos, game);
-  game.position = newPos;
+
+
 };
 
 
@@ -110,26 +114,7 @@ function move(newPos, game, world) {
 
 function print_position(position) {
   console.log(position[0][0] + "-" + position[0][1]);
-}
-
-
-// Create board
-
-// function boardCreate(size) {
-//   var body = document.body;
-//   var tbl = document.createElement('table');
-
-//   for (var i = 0; i < size; i++) {
-//     var tr = tbl.insertRow();
-//     for ( var j = 0; j < size; j++) {
-//       var td = tr.insertCell();
-//       td.appendChild(document.createTextNode('Cell'));
-//     }
-//   }
-
-// body.appendChild(tbl);
-
-// };
+};
 
   function boardCreate(game, world) {
     var size = game.gridSize;

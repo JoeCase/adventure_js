@@ -1,17 +1,20 @@
 $(document).ready(function() {
 
-  var worldArgs = {size:  8,
-                   bombs: 2,
-                   health: 2
+  var worldArgs = {size:  15,
+                   bombs: 5,
+                   health: 3
                   };
 
   var world = new World(worldArgs);
+
 
   world.gridGen();
   world.bombGen();
   world.healthGen();
   world.treasureGen();
   world.startGen();
+
+
 
 
 
@@ -31,7 +34,8 @@ $(document).ready(function() {
   alert("Are you ready to play?");
 
   Mousetrap.bind('up', function(){
-    var newPos = [[ game.position[0][0], game.position[0][1] + 1 ]];
+    var newPos = [[ game.position[0][0] + 1, game.position[0][1] ]];
+
     var edge =  game.edgeCheck(newPos, game);
     if ( edge ) {
       alert("You hit a wall! Try again")
@@ -43,7 +47,8 @@ $(document).ready(function() {
 
 
   Mousetrap.bind('down', function(){
-    var newPos =  [ [game.position[0][0], game.position[0][1] - 1 ]];
+    var newPos = [[game.position[0][0] - 1, game.position[0][1] ]];
+
     var edge =  game.edgeCheck(newPos, game);
     if ( edge ) {
       alert("You hit a wall! Try again")
@@ -55,7 +60,9 @@ $(document).ready(function() {
 
 
   Mousetrap.bind('left', function(){
-    var newPos = [[game.position[0][0] - 1, game.position[0][1] ]];
+    var newPos =  [ [game.position[0][0], game.position[0][1] - 1 ]];
+
+
      var edge =  game.edgeCheck(newPos, game);
     if ( edge ) {
       alert("You hit a wall! Try again")
@@ -67,7 +74,9 @@ $(document).ready(function() {
 
 
   Mousetrap.bind('right', function(){
-    var newPos = [[ game.position[0][0] + 1, game.position[0][1] ]];
+
+
+    var newPos = [[ game.position[0][0], game.position[0][1] + 1 ]];
      var edge =  game.edgeCheck(newPos, game);
     if ( edge ) {
       alert("You hit a wall! Try again")

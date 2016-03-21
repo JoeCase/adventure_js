@@ -15,17 +15,18 @@ tr {
 }
 
 td {
-  border: 1px grey solid;
   height: 50px;
   width: 50px;
+  background-color: gray;
 }
 
 .player {
-  background-color: red;
+  background: url("../img/dj-icon.png");
+  background-size: 50px;
 }
 
 .bomb {
-  background-color: gray;
+  background-color: blue;
 }
 
 .health {
@@ -34,4 +35,8 @@ td {
 
 .treasure {
   background-color: yellow;
+}
+
+.played {
+  background-color: #fff
 }
