@@ -57,8 +57,13 @@ var audio2 = new Audio('./audio/kick_snare.mp3');
 audio2.loop = true;
 var audio3 = new Audio('./audio/kick_snare_hats.mp3');
 audio3.loop = true;
+var audio4 = new Audio('./audio/kick_snare_hats_bass.mp3');
+audio4.loop = true;
+var audio5 = new Audio('./audio/kick_snare_hats_bass_synth.mp3');
+audio5.loop = true;
+var boo = new Audio('./audio/boo.mp3');
 
-var loops = [audio1, audio2, audio3];
+var loops = [audio1, audio2, audio3, audio4, audio5];
 var loop_i = 0;
 var audio = false;
 
@@ -81,6 +86,7 @@ Game.prototype.bombCheck = function(bombCoord, newPos, game) {
       bombCoord.splice(i,1);
       if (audio) {audio.pause();}
       loop_i = 0;
+      boo.play();
       // alert("BOMB!!!!!!!!!!!!! You health is now :" +  this.health);
     }
   };
@@ -95,12 +101,14 @@ Game.prototype.healthCheck = function(healthCoord, newPos, game) {
       if(!audio) {
         audio = loops[loop_i];
         audio.play();
-        loop_i += 1;
       } else {
         audio.pause();
         audio = loops[loop_i];
         audio.play();
-        loop_i += 1;
+        if (loop_i < 5) {
+          loop_i += 1 } else {
+            loop_i = loop_i
+          };
       }
 
       // alert("Healthpack!!!! Your health is now :" +  this.health);

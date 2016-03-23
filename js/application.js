@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
   var worldArgs = {size:  15,
-                   bombs: 5,
-                   health: 7
+                   bombs: 7,
+                   health: 8
                   };
 
   var world = new World(worldArgs);
