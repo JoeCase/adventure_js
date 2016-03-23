@@ -49,6 +49,20 @@ World.prototype.startGen = function() {
   this.playerStart.push(this.coordinates.splice(i, 1)[0]);
 };
 
+// AUDIO
+
+var audio1 = new Audio('./audio/kick.mp3');
+audio1.loop = true;
+var audio2 = new Audio('./audio/kick_snare.mp3');
+audio2.loop = true;
+var audio3 = new Audio('./audio/kick_snare_hats.mp3');
+audio3.loop = true;
+
+var loops = [audio1, audio2, audio3];
+var loop_i = 0;
+var audio = false;
+
+
 // GAME ////////////////////////////////////////////
 
 function Game(args) {
@@ -65,7 +79,9 @@ Game.prototype.bombCheck = function(bombCoord, newPos, game) {
     if ( bombCoord[i][0] == newPos[0][0] && bombCoord[i][1] == newPos[0][1] ) {
       this.health -= 10
       bombCoord.splice(i,1);
-      alert("BOMB!!!!!!!!!!!!! You health is now :" +  this.health);
+      if (audio) {audio.pause();}
+      loop_i = 0;
+      // alert("BOMB!!!!!!!!!!!!! You health is now :" +  this.health);
     }
   };
 };
@@ -75,7 +91,19 @@ Game.prototype.healthCheck = function(healthCoord, newPos, game) {
     if ( healthCoord[i][0] == newPos[0][0] && healthCoord[i][1] == newPos[0][1] ) {
       this.health += 10
       healthCoord.splice(i,1);
-      alert("Healthpack!!!! Your health is now :" +  this.health);
+
+      if(!audio) {
+        audio = loops[loop_i];
+        audio.play();
+        loop_i += 1;
+      } else {
+        audio.pause();
+        audio = loops[loop_i];
+        audio.play();
+        loop_i += 1;
+      }
+
+      // alert("Healthpack!!!! Your health is now :" +  this.health);
     }
   };
 };

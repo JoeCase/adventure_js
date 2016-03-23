@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   var worldArgs = {size:  15,
                    bombs: 5,
-                   health: 3
+                   health: 7
                   };
 
   var world = new World(worldArgs);
@@ -85,5 +85,6 @@ $(document).ready(function() {
       print_position(game.position);
     };
   });
+
 
 });
